@@ -15,6 +15,12 @@ pipeline{
 
 			}
 		}
+		stage('Add war to archive'){
+			steps{
+				archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+			}
+		}
+
 	}
 }
 
