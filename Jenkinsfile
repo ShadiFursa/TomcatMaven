@@ -23,6 +23,12 @@ pipeline{
 				copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'MavenBD', selector: lastSuccessful()
 			}
 		}
+		stage('Deploy to tomcat containter'){
+			steps{
+				deploy adapters: [tomcat9(credentialsId: '2875d8aa-3ec6-4e8c-adce-a41f02384e4b', path: '', url: 'https://34.254.159.229:8888/')], contextPath: null, war: '**/*.war'
+			}
+
+		}
 
 	}
 }
