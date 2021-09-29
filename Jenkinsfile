@@ -9,15 +9,14 @@ pipeline{
 		}
 		stage('Build Project'){
 			steps{
-				script{
-					"./mvnw package"
-				}
+				sh 'mvn clean install'}
 
 			}
 		}
 		stage('Add war to archive'){
 			steps{
 				archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+
 			}
 		}
 
