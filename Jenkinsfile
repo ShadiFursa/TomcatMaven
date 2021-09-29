@@ -17,8 +17,9 @@ pipeline{
 		}
 		stage('Add to archive'){
 			steps{
-				archiveArtifacts artifacts: 'build/libs/**/*.war', followSymlinks: false
+				archiveArtifacts artifacts: '**/*.war', followSymlinks: false
 			}
+
 		}
 	}
 }
